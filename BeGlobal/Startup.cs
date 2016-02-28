@@ -58,6 +58,7 @@ namespace BeGlobal
             app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseStaticFiles();
+            app.UseDefaultFiles();
 
             app.UseMvc();
         }
