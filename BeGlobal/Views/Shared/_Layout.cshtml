@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="~/lib/css/normalize.css">
+    <link rel="stylesheet" href="~/lib/css/foundation.min.css">
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
+</head>
+<body>
+    @RenderBody()
+
+    <script type="text/javascript">
+    var appInsights = window.appInsights || function(config) {
+        function r(config) {
+            t[config] = function() {
+                var i = arguments;
+                t.queue.push(function() { t[config].apply(t, i) });
+            };
+        }
+
+        var t = { config: config }, u = document, e = window, o = "script", s = u.createElement(o), i, f;
+        for (s.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;)r("track" + i.pop());
+        return r("setAuthenticatedUserContext"), r("clearAuthenticatedUserContext"), config.disableExceptionTracking || (i = "onerror", r("_" + i), f = e[i], e[i] = function(config, r, u, e, o) {
+            var s = f && f(config, r, u, e, o);
+            return s !== !0 && t["_" + i](config, r, u, e, o), s;
+        }), t;
+    }({
+        instrumentationKey: "a44d47e3-c579-4684-b9cc-de4eb7e02dda"
+    });
+
+    window.appInsights = appInsights;
+    appInsights.trackPageView();
+    </script>
+</body>
+</html>
