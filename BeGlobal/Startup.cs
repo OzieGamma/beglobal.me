@@ -8,6 +8,7 @@
 // Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 // </copyright>
 
+using BeGlobal.Configuration;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +29,7 @@ namespace BeGlobal
             {
                 // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
                 builder.AddApplicationInsightsSettings(true);
+                builder.AddUserSecrets();
             }
 
             builder.AddEnvironmentVariables();
@@ -41,6 +43,8 @@ namespace BeGlobal
         {
             // Add framework services.
             services.AddApplicationInsightsTelemetry(this.Configuration);
+
+            services.Configure<SendGridConfiguration>(this.Configuration.GetSection("SendGrid"));
 
             services.AddMvc();
         }

@@ -1,4 +1,5 @@
 ﻿{
+  "userSecretsId": "x4N6ZbQnYvCSBpMovL5iUc84MgXEeaQy",
   "version": "1.0.0-*",
   "compilationOptions": {
     "emitEntryPoint": true
@@ -22,8 +23,9 @@
     "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
+    "Microsoft.Extensions.SecretManager": "1.0.0-rc1-final",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final",
-    "Octokit": "0.18.0"
+    "Sendgrid": "6.3.4"
   },
 
   "commands": {
