@@ -2,7 +2,7 @@
     background-color: black;
     color: white;
     font-family: 'Open Sans', sans-serif;
-    font-size: 24px;
+    font-size: 2em;
     height: auto;
     text-align: center;
 }
@@ -25,12 +25,23 @@ p { font-size: 60px; }
     font-weight: bolder;
 }
 
-a {
-    color: #117711;
+.opensource-thanks {
+    color: #555;
+    font-style: italic;
+    font-size: 0.5em;
     text-decoration: none;
 }
 
-a:hover {
-    color: #229922;
+a.opensource-thanks:hover {
+    color: #888;
     text-decoration: underline;
+}
+
+iframe {
+    border: none;
+    overflow: hidden;
+}
+
+ul {
+    list-style: none;
 }

@@ -8,7 +8,9 @@
 // Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 // </copyright>
 
-using BeGlobal.Configuration;
+using BeGlobal.Config;
+using BeGlobal.Controllers;
+using BeGlobal.Services;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -44,7 +46,9 @@ namespace BeGlobal
             // Add framework services.
             services.AddApplicationInsightsTelemetry(this.Configuration);
 
-            services.Configure<SendGridConfiguration>(this.Configuration.GetSection("SendGrid"));
+            services.Configure<SendGridConfig>(this.Configuration.GetSection("SendGrid"));
+            services.Configure<AdminContactInfo>(this.Configuration.GetSection("AdminContactInfo"));
+            services.AddSingleton<IAdminNotifier, EmailAdminNotifier>();
 
             services.AddMvc();
         }
@@ -71,15 +75,12 @@ namespace BeGlobal
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
             }
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}");
+            app.UseStatusCodePagesWithReExecute("/Error/{0}");
 
-                routes.MapRoute("default", "{controller=Home}/{action=Index}");
-            });
+            app.UseMvc();
         }
 
         // Entry point for the application.
