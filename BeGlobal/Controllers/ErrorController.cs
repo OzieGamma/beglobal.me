@@ -18,7 +18,7 @@ namespace BeGlobal.Controllers
         [HttpGet]
         public IActionResult Index() => this.View();
         
-        [HttpGet("{id:int}")]
+        [HttpGet("{statusCode:int}")]
         public IActionResult StatusCode(int statusCode)
         {
             this.ViewBag.StatusCode = statusCode;
