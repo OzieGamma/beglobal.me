@@ -26,9 +26,9 @@ namespace BeGlobal.Controllers
         }
         
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            await this.adminNotifier.NotifyAsync("Someone visited BeGlobal.me");
+            //await this.adminNotifier.NotifyAsync("Someone visited BeGlobal.me");
             return this.View();
         }
         
